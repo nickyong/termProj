@@ -1,0 +1,106 @@
+
+
+
+li{
+
+border:none;
+border-bottom: 3px solid #eeeeee;
+}
+
+
+#commentButt{
+    font-family: 'Sanchez', serif;
+    
+    border:1px solid black;
+    border-radius: 3px;
+
+    float:right;
+    margin-right: 5px;
+}
+
+.commentfbName{
+
+}
+
+.deleteCommentId{
+    width:30px;
+    height:30px;
+    background-image:url('/xpics/delete3.png');
+    background-repeat:no-repeat;
+    float:right;
+}
+
+#comment_box_wrapper{
+    margin-top:25px;
+    margin-bottom:10px;
+    border-radius:5px;
+    background-color: #C9E0F5;
+    padding: 5px
+}
+
+
+.commenterName{
+
+    
+    color:black;
+    font-family: Sanchez, sans-serif;
+    font-weight: bold;
+
+	font-size: 20px;
+	font-style: verdana;
+    text-decoration:none !important;
+
+}
+.commenterComment{
+
+    display: inline;
+	color:#000000;
+
+    font-family: Sanchez ,  sans-serif;
+    position:relative;
+    font-size: 17px;
+
+}
+.commenterCommentEvent{
+    display:block;
+    color:#000000;
+    font-family: Sanchez ,  sans-serif;
+    position:relative;
+    font-size: 17px;
+
+}
+
+#calTab .ui-content{
+    padding: 0;
+    padding-bottom: 60px;
+}
+#outputTwitter{
+
+    width: 100%;
+   
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: absolute;
+}
+.tweet{
+    display: block;
+    padding: 2%;
+    
+    border-bottom: 3px solid #585858;
+}
+.tweet-left{
+    float: left;
+    padding:2%;
+    padding-bottom: 40px;
+}
+.tweet-left img{
+
+}
+
+
+
+
+.tweet{
+    
+}

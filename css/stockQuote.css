@@ -1,0 +1,70 @@
+
+
+.rightInfo{
+	display:inline;
+	float:right;
+}
+
+
+.symbol{
+	display:inline-block;
+	font-size: 20px;
+	
+}
+
+.stockPrice{
+	display:block;
+	font-size: 20px;
+}
+.stockChangeR{
+	color:#ff0000;
+	display:inline;
+	font-size: 15px;
+}
+.percentChangeR{
+	color:#ff0000;
+	display:inline;
+	font-size: 15px;
+}
+
+.stockChangeG{
+	color:#00ff00;
+	display:inline;
+	font-size: 15px;
+}
+
+.percentChangeG{
+	color:#00ff00;
+	display:inline;
+	font-size: 15px;
+}
+
+
+
+
+
+
+
+
+#stockBox{
+	display:block;
+	background-color: #f8f8f8;
+	padding;:
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+	min-height: 200px;
+}
+
+#chartdiv{
+	display:block;
+	background-color: #f8f8f8;
+	padding;:
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+	min-height: 200px;
+}
+
+
+*/

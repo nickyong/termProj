@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<!-- google fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Gafata|Sanchez' rel='stylesheet' type='text/css'>
+
+
+	<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">-->
+   	
+	<!-- Google Maps lib-->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
+	
+	<!-- jquery ui  css-->
+	<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+	<!-- jquery mobie-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+	<!--my own css for general-->
+	<link href="/css/style.css" rel="stylesheet" type="text/css">
+	<link href="/css/comments.css" rel="stylesheet" type="text/css">
+	<link href="/css/dispEinfo.css" rel="stylesheet" type="text/css">
+	
+	<!-- jquery-->
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+	<!-- jquery for calendar and stuff-->
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    	<!-- jquery mobile-->
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+	   <link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" rel="stylesheet" /> 
+	   <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+
+
+	 <!--- Cordova-->
+	<script src="libs/cordova-2.1.0.android.js"></script>
+	<script src="libs/cordova-2.1.0.ios.js"></script>
+    <script src="libs/util.js"></script> 
+
+	<!-- Google Maps+toast-->
+	<script src="/logicjsfiles/infobox.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/gMaps.js" type="text/javascript"></script>
+	<script src="libs/toast.js" type="text/javascript"></script>
+
+	
+
+
+
+	<!--- Logic JS-->
+
+	<script src="/logicjsfiles/masterInfo.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/addEventInfo.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/dispEInfo.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/dispCal.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/eventDetails.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/getGeoloc.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/jquerymaps.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/delEvent.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/takePhoto.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/getTweets.js" type="text/javascript"></script>
+	<script src="/logicjsfiles/load.js" type="text/javascript"></script>
+
+
+
+
+</head>
+
+<body>
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+	<script>
+	  	
+		(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=119563781536927";
+	  fjs.parentNode.insertBefore(js, fjs);
+
+
+	}(document, 'script', 'facebook-jssdk'));
+
+	</script>
+<!--Fb login popup -->
+
+<div data-role="page" id="loginPage">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Welcome!</h1>
+		<a href="/auth/facebook" data-ajax="false" class="ui-btn-right facebooklogin" id='facebooklogin' >Log In</a>
+		<a href="" id='facebooklogin1' class='facebooklogin1 ui-btn-right'>Log Out</a>
+		</div>
+
+<div data-role="content">
+
+
+
+	<div id='facebookloginWrapper' >
+			<div id='logoID'>
+
+	</div>
+		
+		
+		<div id="campusSelect">Select Campus</div>
+		<li data-role="fieldcontain" id="campusSelect1">
+					<select name="select-choice-3" id="collegeNameId">
+						<option value="carnegie mellon university">Carnegie Mellon University</option>
+						<option value="berkeley college">University of California, Berkeley</option>
+						<option value="michigan university">University of Michigan</option>
+						<option value="chicago university">University of Chicago</option>
+
+					</select>
+		</li>		
+
+	</div>
+
+
+    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    <img style="display:none;" id="largeImage" src="" />
+
+	<a href="#dispEventsTab" data-theme='b' id='loginPageContId' data-role="button" >Whats Hot?</a>
+	
+
+</div>	
+
+
+<!-- toasts-->
+
+	
+	<div id="toast1" class='toast1' data-role="popup"><p>Please Log In</p></div>
+	<div id="toast2" class='toast1' data-role="popup"><p>Event Created:)<p></div>
+	<div id="toast3" class='toast1' data-role="popup"><p>Please Write A Comment:)<p></div>
+
+
+
+</div>
+ 
+
+
+
+<!--Add info page-->
+
+<div data-role="page" id="addEventTab">
+
+	<div data-role="header"  data-position="fixed">
+		<h1>Add Event Info</h1>
+		
+	</div>
+
+<div data-role="content">
+	
+
+	<div id='infoFormWrapper'>
+		<form id='infoForm'>
+		<div class='questions'>Title:</div>
+		<label for="basic"></label>
+		<input type="text" name="name" class='questions' id="titId" data-mini="true" placeholder="In 3 words. What's this about?"/>
+
+		<div class='questions'>Description:</div>
+		<label for="basic"></label>
+		<input type="text" name="name" class='questions' id="descripId" data-mini="true" placeholder="Now tell us exactly..."/>
+		<fieldset class="ui-grid-a">
+			<div class="ui-block-a"><div class='questions'>Date:</div>
+				<label for="basic"></label>
+				<input name="mydate" id="dateId"  type="date" data-role="datebox"
+			   data-options='{"mode": "calbox"}' data-mini="true" /></div>
+			<div class="ui-block-b"><div class='questions'>Time:</div>
+			   <label for="basic"></label>
+				<input name="timeDateBox" type="date" data-role="datebox" data-options='{"mode": "timebox", "timeFormatOverride":12}' id="timeId" data-mini="true" /></div>	   
+		</fieldset>
+		
+
+	   
+
+		<div class='questions'>Location:</div>
+		<label for="basic"></label>
+		<input type="text" name="name" class='questions' id="gMapsPosId" data-mini="true" placeholder="Location..."/>
+
+		</form>
+		
+
+		
+		<li data-role="fieldcontain">
+				<label for="select-choice-3" class='questions'>Event Type</label></br>
+				<select name="select-choice-3" id="eventTypeId" >
+					<option value="speech">Speech</option>
+					<option value="conference">Conference</option>
+					<option value="party">Party</option>
+					<option value="food">Free Food</option>
+					<option value="boardgames">Board Games</option>
+					<option value="poker">Poker</option>
+					
+				</select>
+		</li>	
+
+
+		<a href="#" id='takePhotoId' class='questions' data-icon="takePhotoIdPin" data-role="button">Take Picture</a>
+		
+		<a href="#" id='subFormId' data-theme='b' data-role='button'>Create Event!</a>
+		<a href="#" id='delFormId' data-role="button" data-icon="check">Delete</a>
+	</div>
+</div>
+
+<div data-role="footer"  data-position="fixed" class="footerIcons">
+	<div data-role="navbar" class="footerIcons">
+		<ul>
+			<li><a href="#addEventTab" data-icon='custom' class='createFooter'>Create</a></li>
+			<li><a href="#dispEventsTab" data-icon='custom' class='eventsFooter'>Events</a></li>
+			<li><a href="#mapTab" data-icon='custom' class="dispEventsMap">Maps</a></li>
+			<li><a href="#calTab" data-icon='custom' class='tweetsFooter'>Tweets</a></li>
+		</ul>
+	</div>
+</div>
+
+</div>
+ 
+
+<!-- Disp All events-->
+<div data-role="page" id="dispEventsTab">
+
+	<div data-role="header"  data-position="fixed">
+		<h1>Activities around!</h1>
+		<a href="/auth/facebook" data-ajax="false" class='facebooklogin ui-btn-right' id='facebooklogin' >Log In</a>
+		<a href="" id='facebooklogin1'  class='facebooklogin1 ui-btn-right'>Log Out</a>
+		<a href="#" data-icon="gear" class="ui-btn-left" id='dispFormId'>Pull</a>
+	</div>
+
+<div data-role="content">
+
+	
+	<div id="dispEventBoardId"></div>
+	
+</div> 
+
+<div data-role="footer"  class="footerIcons">
+	<div data-role="navbar" class="footerIcons">
+		<ul>
+			<li><a href="#addEventTab" data-icon='custom' class='createFooter'>Create</a></li>
+			<li><a href="#dispEventsTab" data-icon='custom' class='eventsFooter'>Events</a></li>
+			<li><a href="#mapTab" data-icon='custom' class="dispEventsMap">Maps</a></li>
+			<li><a href="#calTab" data-icon='custom' class='tweetsFooter'>Tweets</a></li>
+		</ul>
+	</div>
+</div>
+
+</div>
+<!-- disp event details and comment sect tab -->
+	<div data-role="page" id="dispDetailsTab">
+
+	<div data-role="header"  data-position="fixed">
+
+
+		<h1>Event Details</h1>
+	</div>
+
+<div data-role="content">
+	
+
+	<div id='eventDetailsWrapper'>
+		<div id='picBoardId'></div>
+
+		
+
+		<div id='eventDetailsBoardId'>
+
+		</div>
+		
+
+
+		<div id="comment_box_wrapper" >
+			<div id="comment_box"></div>
+			<label for="textarea-a"></label>
+			<textarea name="textarea" placeholder="Leave a Comment!" id="CommentTextId"></textarea>
+		</div>
+		
+		
+		<a href="#" id="commentButt" data-theme='b' data-role='button'>Comment</a>
+		<!--<a href="#" id="checkinButt">Check In</a>-->
+		<a href="#" id="testing"></a>
+
+	</div>
+</div>
+
+<div data-role="footer"  data-position="fixed" class="footerIcons">
+	<div data-role="navbar" class="footerIcons">
+		<ul>
+			<li><a href="#addEventTab" data-icon='custom' class='createFooter'>Create</a></li>
+			<li><a href="#dispEventsTab" data-icon='custom' class='eventsFooter'>Events</a></li>
+			<li><a href="#mapTab" data-icon='custom' class="dispEventsMap">Maps</a></li>
+			<li><a href="#calTab" data-icon='custom' class='tweetsFooter'>Tweets</a></li>
+		</ul>
+	</div>
+</div>
+
+</div>
+
+<!-- Calender                                                             -->
+	<div data-role="page" id="calTab">
+
+	<div data-role="header"  data-position="fixed">
+
+
+		<h1>Tweets</h1>
+
+
+	</div>
+
+<div data-role="content">
+	
+<!--	<div id='calId'>Click on the Date to see whats happening then!
+	<label for="basic">Date:</label>
+	<input name="mydate" id="calenderId" type="date" data-role="datebox"
+   data-options='{"mode": "calbox"}' data-mini="true"/>
+   <div id='calWrapper'>
+	<div id="datepicker"></div>
+	<div id='dispEventBoardbelowCalId'></div>
+</div>
+-->
+	<div id="outputTwitter"></div>
+
+</div>
+
+<div data-role="footer"  data-position="fixed" class="footerIcons">
+	<div data-role="navbar" class="footerIcons">
+		<ul>
+			<li><a href="#addEventTab" data-icon='custom' class='createFooter'>Create</a></li>
+			<li><a href="#dispEventsTab" data-icon='custom' class='eventsFooter'>Events</a></li>
+			<li><a href="#mapTab" data-icon='custom' class="dispEventsMap">Maps</a></li>
+			<li><a href="#calTab" data-icon='custom' class='tweetsFooter'>Tweets</a></li>
+		</ul>
+	</div>
+</div>
+</div>
+ 
+
+<!-- Jquery Maps                                               -->
+<div data-role="page" id="mapTab">
+
+	<div data-role="header"  data-position="fixed">
+
+
+		<h1>Maps</h1>
+
+
+	</div>
+
+<div data-role="content">
+
+	<div id='mapInputWrapper'>
+		<a href="#" id='subLocId' data-role="button" data-icon="check">Confirm</a>
+		
+		<div>
+		  	<input id="searchTextField" type="text" class="reset">
+		      
+		</div>
+	</div>
+
+	<div id="map_canvas"></div>	    
+
+</div>
+
+
+<div data-role="footer"  data-position="fixed" class="footerIcons">
+	<div data-role="navbar" class="footerIcons">
+		<ul>
+			<li><a href="#addEventTab" data-icon='custom' class='createFooter'>Create</a></li>
+			<li><a href="#dispEventsTab" data-icon='custom' class='eventsFooter'>Events</a></li>
+			<li><a href="#mapTab" data-icon='custom' class="dispEventsMap">Maps</a></li>
+			<li><a href="#calTab" data-icon='custom' class='tweetsFooter'>Tweets</a></li>
+		</ul>
+	</div>
+</div>
+
+</div>
+
+
+
+</body>
+
+</html>
