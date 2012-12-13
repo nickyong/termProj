@@ -2,7 +2,7 @@
 @font-face
 {
 font-family: ff;
-src: url('/fonts/ff.ttf');
+src: url('fonts/ff.ttf');
 
 }
 
@@ -37,20 +37,20 @@ body{text-decoration:none;}
 
 
 .eventsFooter .ui-icon{
-	background:  url(/xpics/eventsfooter.png) 50% 50% no-repeat;
+	background:  url(xpics/eventsfooter.png) 50% 50% no-repeat;
 	background-size: 30px 30px; 
 }
 .dispEventsMap .ui-icon{
-	background:  url(/xpics/mapsfooter.png) 50% 50% no-repeat;
+	background:  url(xpics/mapsfooter.png) 50% 50% no-repeat;
 	background-size: 30px 30px; 
 }
 .tweetsFooter .ui-icon{
-	background:  url(/xpics/tweetfooter.png) 50% 50% no-repeat;
+	background:  url(xpics/tweetfooter.png) 50% 50% no-repeat;
 	background-size: 30px 30px; 
 }
 
 .createFooter .ui-icon{
-	background:  url(/xpics/createfooter.png) 50% 50% no-repeat;
+	background:  url(xpics/createfooter.png) 50% 50% no-repeat;
 	background-size: 30px 30px; 
 }
 .toast1{
@@ -80,7 +80,7 @@ body{text-decoration:none;}
 
    	margin-left: auto;
     margin-right: auto;
-    background-image:url('/xpics/logo7.png');
+    background:url(xpics/logo7.png);
     background-repeat:no-repeat;
 	text-align: center;
 
@@ -89,40 +89,40 @@ body{text-decoration:none;}
 .map_campus{
 	width:50px;
 	height:50px;
-	background-image:url('/xpics/camp.png')
+	background-image:url('xpics/camp.png')
 }
 
 
 .map_party{
 	width:50px;
 	height:50px;
-	background-image:url('/xpics/beerx.png')
+	background-image:url('xpics/beerx.png')
 }
 .map_food{
 	width:50px;
 	height:50px;
-	background-image:url('/xpics/foodx.png')
+	background-image:url('xpics/foodx.png')
 }
 .map_poker{
 	width:50px;
 	height:50px;
-	background-image:url('/xpics/pokerx.png')
+	background-image:url('xpics/pokerx.png')
 }
 .map_boardgames{
 	width:50px;
 	height:50px;
-	background-image:url('/xpics/boardgamesx.png')
+	background-image:url('xpics/boardgamesx.png')
 }
 
 .map_speech{
 	width:50px;
 	height:50px;
-	background-image:url('/xpics/speechx.png')
+	background-image:url('xpics/speechx.png')
 }
 .map_conference{
 	width:50px;
 	height:50px;
-	background-image:url('/xpics/meetingx.png')
+	background-image:url('xpics/meetingx.png')
 }
 .ui-btn-corner-all{
 	border-radius:0px;

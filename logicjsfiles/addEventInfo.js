@@ -187,12 +187,14 @@ eventInfo.prototype.sendEreq=function(args){
 eventInfo.prototype.getEreq=function(args,callBackgetinfo){
 	var cmd='getEinfo'
 	console.log('getEreq');
+	console.log('args below:');
+	console.log(args);
 	//alert('getting stuff')
     var req = $.ajax({
-        url: '/getInfo',
+        url: 'http://192.168.1.147:5757/getInfo',
         type: 'POST',
         data: args,
-        dataType:"json"
+        dataType:"jsonp"
     });
     req.done(callBackgetinfo);
 

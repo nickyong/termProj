@@ -213,8 +213,8 @@ dispEventinfo.prototype.getandDisplayAllEvents=function(){
 
 		var callBackD=function(results){
 			// when else do i display the info? on page load of course.
-			console.log('callingbackddddddddddddddddddddddddddddddd');
-			
+			console.log('callingbackdddddddddddddddddddddddddddddddf');
+			console.log(results);
 			window.dispEventinfo1.makeList('#dispEventBoardId',results);
 			window.masterInfo1.dispAllCurrentEventObj=results;
 			window.masterInfo1.saveUserInfotoInstance();
